@@ -12,6 +12,12 @@ namespace Entities.Models
         public string Name { get; set; } = null!;
         public DateTime Date { get; set; }
         public int TicketsNumber { get; set; }
-
+        public ICollection<Ticket>? Tickets { get; set; }
+        public int PlaceId { get; set; }
+        public Place? Place { get; set; }
+        public ICollection<Artist>? Artists { get; set; }
+        public ICollection<ArtistConcert>? ArtistConcerts { get; set; }
+        public int TypeId { get; set; }
+        public Type? Type { get; set; }
     }
 }

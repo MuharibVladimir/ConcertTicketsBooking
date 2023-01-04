@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public class Type
+    public abstract class Type
     {
         public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-
+        public string Name { get; set; } = null!;
+        public ICollection<Concert>? Concerts { get; set; }
     }
 }

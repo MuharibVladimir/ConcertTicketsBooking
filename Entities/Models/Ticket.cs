@@ -11,5 +11,9 @@ namespace Entities.Models
         public int Id { get; set; }
         public int? SeatNumber { get; set; }
         public string District { get; set; } = null!;
+        public int ConcertId { get; set; }
+        public Concert? Concert { get; set; }
+        public int BookingId { get; set; }
+        public Booking? Booking { get; set; }
     }
 }

@@ -8,5 +8,11 @@ namespace Entities.Models
 {
     public class ArtistConcert
     {
+        public int ConcertId { get; set; }
+
+        public  Concert? Concert { get; set; }
+        public int ArtistId { get; set; }
+
+        public  Artist? Artist { get; set; }
     }
 }

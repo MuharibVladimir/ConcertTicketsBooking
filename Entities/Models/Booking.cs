@@ -8,5 +8,11 @@ namespace Entities.Models
 {
     public class Booking
     {
+        public int Id { get; set; }
+        public int UserId { get; set; }
+
+        public  User? User { get; set; }
+        public ICollection<Ticket>? Tickets { get; set; }
+        public DateTime? BookingTime { get; set; }
     }
 }

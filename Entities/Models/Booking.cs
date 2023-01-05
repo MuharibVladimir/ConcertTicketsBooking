@@ -13,6 +13,6 @@ namespace Entities.Models
 
         public  User? User { get; set; }
         public ICollection<Ticket>? Tickets { get; set; }
-        public DateTime? BookingTime { get; set; }
+        public DateTime BookingTime { get; set; }
     }
 }

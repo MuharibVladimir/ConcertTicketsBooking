@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public class Party: Type
+    public class Party: ConcertType
     {
         public int MinAge { get; set; }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public class OpenAir: Type
+    public class OpenAir: ConcertType
     {
         public string HeadLiner { get; set; } = null!;
         public string DrivingDirections { get; set; } = null!;

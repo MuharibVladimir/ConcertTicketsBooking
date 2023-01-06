@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public class Classic: Type
+    public class Classic: ConcertType
     {
         public string VoiceType { get; set; } = null!;
         public string CompositionName { get; set; } = null!;

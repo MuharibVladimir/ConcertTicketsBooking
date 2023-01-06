@@ -5,6 +5,10 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcertTicketsBooking", "ConcertTicketsBooking\ConcertTicketsBooking.csproj", "{EE526D24-BACB-4810-8E05-9D09C6B37796}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{9DE1F391-C0E3-474A-9569-15BA455A57BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{BECE02EE-0909-45A1-A664-0E3D7711885D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{EE526D24-BACB-4810-8E05-9D09C6B37796}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE526D24-BACB-4810-8E05-9D09C6B37796}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE526D24-BACB-4810-8E05-9D09C6B37796}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DE1F391-C0E3-474A-9569-15BA455A57BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DE1F391-C0E3-474A-9569-15BA455A57BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DE1F391-C0E3-474A-9569-15BA455A57BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DE1F391-C0E3-474A-9569-15BA455A57BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BECE02EE-0909-45A1-A664-0E3D7711885D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BECE02EE-0909-45A1-A664-0E3D7711885D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BECE02EE-0909-45A1-A664-0E3D7711885D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BECE02EE-0909-45A1-A664-0E3D7711885D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

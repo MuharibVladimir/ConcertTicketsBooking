@@ -1,0 +1,30 @@
+﻿using Contracts;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Repositories
+{
+    public class RepositoryManager: IRepositoryManager
+    {
+        private readonly RepositoryContext _repositoryContext;
+        private readonly Lazy<IConcertRepository> _concertRepository;
+
+        public RepositoryManager(RepositoryContext repositoryContext)
+        {
+            _repositoryContext = repositoryContext;
+            _concertRepository = new Lazy<IConcertRepository>(() => new ConcertRepository(repositoryContext));
+        }
+
+        public IConcertRepository Concert => _concertRepository.Value;
+
+        public async Task SaveAsync()
+        {
+            await _repositoryContext.SaveChangesAsync();
+        }
+
+
+    }
+}

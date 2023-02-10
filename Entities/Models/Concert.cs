@@ -15,7 +15,7 @@ namespace Entities.Models
         public ICollection<Ticket>? Tickets { get; set; }
         public int PlaceId { get; set; }
         public Place? Place { get; set; }
-        public ICollection<Artist>? Artists { get; set; }
+        public string Artist { get; set; } = string.Empty!;
         public int ConcertTypeId { get; set; }
         public ConcertType? ConcertType { get; set; }
     }

@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public class OpenAir: Concert
+    public enum VoiceType
     {
-        public string HeadLiner { get; set; } = null!;
-        public string DrivingDirections { get; set; } = null!;
+        Soprano,
+        Contralto,
+        Tenor,
+        Baritone,
+        Bass
     }
 }

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public class Party: Concert
+    public class OpenAirConcert: Concert
     {
-        public int MinAge { get; set; }
+        public string? HeadLiner { get; set; }
+        public string? DrivingDirections { get; set; }
     }
 }

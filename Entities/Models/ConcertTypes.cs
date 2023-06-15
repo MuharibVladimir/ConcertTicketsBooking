@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public class Party: Concert
+    public enum ConcertTypes
     {
-        public int MinAge { get; set; }
+      Party,
+      OpenAir,
+      Classic
     }
 }

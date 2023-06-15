@@ -16,7 +16,7 @@ namespace Repositories
 
         }
 
-        public void CreateConcert(Concert concert)
+        public void CreateConcert(Party concert)
         {
             Create(concert);    
         }

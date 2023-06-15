@@ -9,9 +9,11 @@ namespace Entities.Models
     public class Booking
     {
         public Guid Id { get; set; }
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
         public  User? User { get; set; }
-        public ICollection<Ticket>? Tickets { get; set; }
+        public Guid ConcertId { get; set; }
+        public Concert? Concert { get; set; }
+        //public ICollection<Ticket>? Tickets { get; set; }
         public DateTime BookingTime { get; set; }
     }
 }

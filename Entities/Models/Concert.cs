@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public class Concert
+    public abstract class Concert
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; }    
         public string Name { get; set; } = null!;
         public DateTime Date { get; set; }
         public int TicketsNumber { get; set; }
@@ -16,7 +16,8 @@ namespace Entities.Models
         public int PlaceId { get; set; }
         public Place? Place { get; set; }
         public string Artist { get; set; } = string.Empty!;
-        public int ConcertTypeId { get; set; }
-        public ConcertType? ConcertType { get; set; }
+        public ConcertTypes ConcertType { get; set; }
+        //public int ConcertTypeId { get; set; }
+        //public ConcertType? ConcertType { get; set; }
     }
 }

@@ -12,12 +12,15 @@ namespace Services
     public sealed class ServiceManager: IServiceManager
     {
         private readonly Lazy<IConcertService> _concertService;
+        private readonly Lazy<IVoiceTypeService> _voiceTypeService;
 
         public ServiceManager(IRepositoryManager repositoryManager, IMapper mapper, ILoggerManager logger)
         {
             _concertService = new Lazy<IConcertService>(() => new ConcertService(repositoryManager, logger, mapper));
+            _voiceTypeService = new Lazy<IVoiceTypeService>(() => new VoiceTypeService(repositoryManager, mapper));
         }
 
         public IConcertService ConcertService => _concertService.Value;
+        public IVoiceTypeService VoiceTypeService => _voiceTypeService.Value;
     }
 }

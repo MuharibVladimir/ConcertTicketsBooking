@@ -9,5 +9,6 @@ namespace Services.Contracts
     public interface IServiceManager
     {
         IConcertService ConcertService { get; }
+        IVoiceTypeService VoiceTypeService { get; }
     }
 }

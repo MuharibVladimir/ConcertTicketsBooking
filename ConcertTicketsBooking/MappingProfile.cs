@@ -12,6 +12,8 @@ namespace ConcertTicketsBooking
             CreateMap<Concert, ConcertDto>()
                 .ForMember(c => c.Place,
                     opt => opt.MapFrom(x => x.Place.Name));
+
+            CreateMap<VoiceType, VoiceTypeDto>().ReverseMap();
         }
     }
 }

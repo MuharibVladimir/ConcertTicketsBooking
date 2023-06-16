@@ -18,6 +18,7 @@ namespace Repositories
         public DbSet<OpenAirConcert> OpenAirConcerts { get; set; }
         public DbSet<User>? Users { get; set; }
         public DbSet<Place>? Places { get; set; }
+        public DbSet<VoiceType>? VoiceTypes { get; set; }
         public DbSet<Booking>? Bookings { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)

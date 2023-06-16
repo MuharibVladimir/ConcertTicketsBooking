@@ -9,6 +9,7 @@ namespace Contracts
     public interface IRepositoryManager
     {
         IConcertRepository Concert { get; }
+        IVoiceTypeRepository VoiceType { get; }
         Task SaveAsync();
     }
 }

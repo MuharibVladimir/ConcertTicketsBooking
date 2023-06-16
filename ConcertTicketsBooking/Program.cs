@@ -1,4 +1,5 @@
 using ConcertTicketsBooking.Extensions;
+using ConsertTicketsBooking.Presentation.ActionFilters;
 using NLog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +13,7 @@ builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureLoggerService();
 builder.Services.ConfigureServiceManager();
 builder.Services.AddAutoMapper(typeof(Program));
-
+builder.Services.AddScoped<ValidationFilterAttribute>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

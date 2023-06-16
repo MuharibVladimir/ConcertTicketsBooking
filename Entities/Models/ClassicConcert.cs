@@ -8,8 +8,9 @@ namespace Entities.Models
 {
     public class ClassicConcert: Concert
     {
-        public VoiceType VoiceType { get; set; } 
         public string? CompositionName { get; set; }
         public string? Composer { get; set; }
+        public int VoiceTypeId { get; set; }
+        public VoiceType? VoiceType { get; set; }
     }
 }

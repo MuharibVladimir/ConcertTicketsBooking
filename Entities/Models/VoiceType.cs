@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public enum VoiceType
+    public class VoiceType
     {
-        Soprano,
-        Contralto,
-        Tenor,
-        Baritone,
-        Bass
+        public int Id { get; set; }
+        public string? Name { get; set; }
     }
 }

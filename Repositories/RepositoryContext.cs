@@ -9,7 +9,6 @@ namespace Repositories
     {
         public RepositoryContext(DbContextOptions options): base(options)
         {
-            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 

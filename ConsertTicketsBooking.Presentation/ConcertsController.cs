@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
+using Shared;
+using System.Runtime.CompilerServices;
 
 namespace ConsertTicketsBooking.Presentation
 {
@@ -13,8 +15,22 @@ namespace ConsertTicketsBooking.Presentation
         [HttpGet]
         public async Task<IActionResult> GetConcerts()
         {
-            var companies = await _service.ConcertService.GetAllConcertsAsync(trackChanges: false);
-            return Ok(companies);
+            var concerts = await _service.ConcertService.GetAllConcertsAsync(trackChanges: false);
+            return Ok(concerts);
+        }
+
+        [HttpGet("party-concerts")]
+        public async Task<IActionResult> GetPartyConcerts()
+        {
+            var partyConcerts = await _service.ConcertService.GetPartyConcertsAsync(trackChanges: false);
+            return Ok(partyConcerts);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreatePartyConcert(PartyConcertForCreationDto partyConcert)
+        {
+            var concert = await _service.ConcertService.CreatePartyConcertAsync(partyConcert);
+            return Ok(concert);
         }
 
 

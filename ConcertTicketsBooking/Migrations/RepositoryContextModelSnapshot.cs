@@ -24,18 +24,20 @@ namespace ConcertTicketsBooking.Migrations
 
             modelBuilder.Entity("Entities.Models.Booking", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("BookingTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("ConcertId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ConcertId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -48,12 +50,17 @@ namespace ConcertTicketsBooking.Migrations
 
             modelBuilder.Entity("Entities.Models.Concert", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Artist")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ConcertPlaceId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -65,15 +72,12 @@ namespace ConcertTicketsBooking.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PlaceId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TicketsNumber")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PlaceId");
+                    b.HasIndex("ConcertPlaceId");
 
                     b.ToTable("Concerts");
 
@@ -82,7 +86,7 @@ namespace ConcertTicketsBooking.Migrations
                     b.UseTphMappingStrategy();
                 });
 
-            modelBuilder.Entity("Entities.Models.Place", b =>
+            modelBuilder.Entity("Entities.Models.ConcertPlace", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,14 +99,13 @@ namespace ConcertTicketsBooking.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Places");
+                    b.ToTable("ConcertPlaces");
                 });
 
             modelBuilder.Entity("Entities.Models.User", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -157,9 +160,11 @@ namespace ConcertTicketsBooking.Migrations
                     b.HasBaseType("Entities.Models.Concert");
 
                     b.Property<string>("DrivingDirections")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HeadLiner")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("OpenAirConcert");
@@ -185,9 +190,7 @@ namespace ConcertTicketsBooking.Migrations
 
                     b.HasOne("Entities.Models.User", "User")
                         .WithMany("Bookings")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Concert");
 
@@ -196,13 +199,13 @@ namespace ConcertTicketsBooking.Migrations
 
             modelBuilder.Entity("Entities.Models.Concert", b =>
                 {
-                    b.HasOne("Entities.Models.Place", "Place")
+                    b.HasOne("Entities.Models.ConcertPlace", "ConcertPlace")
                         .WithMany("Concerts")
-                        .HasForeignKey("PlaceId")
+                        .HasForeignKey("ConcertPlaceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Place");
+                    b.Navigation("ConcertPlace");
                 });
 
             modelBuilder.Entity("Entities.Models.ClassicConcert", b =>
@@ -216,7 +219,7 @@ namespace ConcertTicketsBooking.Migrations
                     b.Navigation("VoiceType");
                 });
 
-            modelBuilder.Entity("Entities.Models.Place", b =>
+            modelBuilder.Entity("Entities.Models.ConcertPlace", b =>
                 {
                     b.Navigation("Concerts");
                 });

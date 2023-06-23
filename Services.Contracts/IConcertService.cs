@@ -1,4 +1,5 @@
-﻿using Shared;
+﻿using Entities.Models;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,11 @@ namespace Services.Contracts
     public interface IConcertService
     {
         Task<IEnumerable<ConcertDto>> GetAllConcertsAsync(bool trackChanges);
+        Task<IEnumerable<PartyConcertDto>> GetPartyConcertsAsync(bool trackChanges);
+        Task<IEnumerable<ClassicConcertDto>> GetClassicConcertsAsync(bool trackChanges);
+        Task<IEnumerable<OpenAirConcertDto>> GetOpenAirConcertsAsync(bool trackChanges);
+        Task<PartyConcertDto> CreatePartyConcertAsync(PartyConcertForCreationDto partyConcert);
+        Task<OpenAirConcertDto> CreateOpenAirConcertAsync(OpenAirConcertForCreationDto partyConcert);
+        Task<ClassicConcertDto> CreateClassicConcertAsync(ClassicConcertForCreationDto partyConcert);
     }
 }

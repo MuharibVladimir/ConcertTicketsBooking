@@ -11,9 +11,18 @@ namespace ConcertTicketsBooking
         {
             CreateMap<Concert, ConcertDto>()
                 .ForMember(c => c.Place,
-                    opt => opt.MapFrom(x => x.Place.Name));
+                    opt => opt.MapFrom(x => x.ConcertPlace.Name));
 
             CreateMap<VoiceType, VoiceTypeDto>().ReverseMap();
+
+            CreateMap<PartyConcertForCreationDto, PartyConcert>();
+            CreateMap<PartyConcert, PartyConcertDto>()
+                .ForMember(c => c.Place,
+                    opt => opt.MapFrom(x => x.ConcertPlace.Name));
+
         }
+
+
     }
+
 }

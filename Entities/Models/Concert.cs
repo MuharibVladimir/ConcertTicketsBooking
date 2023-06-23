@@ -8,12 +8,12 @@ namespace Entities.Models
 {
     public abstract class Concert
     {
-        public Guid Id { get; set; }    
+        public int Id { get; set; }    
         public string? Name { get; set; }
         public DateTime Date { get; set; }
         public int TicketsNumber { get; set; }
-        public int PlaceId { get; set; }
-        public Place? Place { get; set; }
+        public int ConcertPlaceId { get; set; }
+        public ConcertPlace? ConcertPlace { get; set; }
         public string? Artist { get; set; }
     }
 }

@@ -10,8 +10,10 @@ namespace Contracts
     public interface IConcertRepository
     {
         Task<IEnumerable<Concert>> GetAllConcertsAsync(bool trackChanges);
-        Task<Concert> GetConcertAsync(Guid concertId, bool trackChanges);
+        Task<IEnumerable<PartyConcert>> GetPartyConcertsAsync(bool trackChanges);
+        //Task<IEnumerable<T>> GetSpecificConcertsAsync<T>(bool trackChanges) where T : class;
+        Task<Concert> GetConcertAsync(int concertId, bool trackChanges);
         void CreateConcert(Concert concert);
-        void DeleteCompany(Concert concert);
+        void DeleteConcert(Concert concert);
     }
 }
